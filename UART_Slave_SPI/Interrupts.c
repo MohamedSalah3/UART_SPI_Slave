@@ -17,7 +17,7 @@ ptr_to_Fun TIMER1COMPB;
 ptr_to_Fun TIMER1OVF;
 ptr_to_Fun TIMER0COMP=Timer_interrupt_COMP_routine;
 ptr_to_Fun TIMER0OVF_INT;//=Timer_interrupt_routine;
-ptr_to_Fun SPI_STC;//=SPI_ISR;
+ptr_to_Fun SPI_STC;//=SPI_Receive_INT;//=SPI_ISR;
 ptr_to_Fun USART_RXC=UartRecieveInterrupt;
 ptr_to_Fun USART_UDRE;
 ptr_to_Fun USART_TXC;//=UartTransmitInterrupt;
@@ -34,7 +34,7 @@ void G_interrupt_Enable(void)
 }
 void EX_interrupt_enable2(void)
 {
-gpioPinDirection(GPIOB,BIT2,LOW);
+gpioPinDirection(GPIOB,BIT2,INPUT);
 SET_BIT(GICR,INT2);
 SET_BIT(MCUCSR,6);
 }

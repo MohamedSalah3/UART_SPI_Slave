@@ -9,7 +9,11 @@
 #define PUSHBUTTON_H_
 #include "pushButtonConfig.h"
 #include "softwareDelay.h"
-
+#include "uart.h"
+#include "SPI.h"
+extern volatile uint8_t data_sent_sum;
+extern volatile uint8_t Asci_data;
+extern volatile uint8_t data_sent;
 typedef enum En_buttonId_t{
 	BTN_0,
 	BTN_1,
@@ -43,4 +47,6 @@ void pushButtonUpdate(void);
  */
 En_buttonStatus_t pushButtonGetStatus(En_buttonId_t en_butotn_id);
 
+
+extern void check_button(void);
 #endif /* PUSHBUTTON_H_ */

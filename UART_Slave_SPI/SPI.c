@@ -36,9 +36,12 @@ void SPI_Init()
 
    
 		
+}/*
+void SPI_Receive_INT(void)
+{
+	data_sent=SPI_Receive();
 }
-
-
+*/
 
 void  SPI_Send(uint8_t u8_data)
 {
@@ -51,9 +54,12 @@ void  SPI_Send(uint8_t u8_data)
 
 uint8_t  SPI_Receive(void)
 {
-	/* Wait for transmission complete */
-	while(!(SPSR & (1<<SPIF)));
-	//return SPDR ; // Received data
+	if (!(READBIT(SPCR,SPIE)))
+	{
+		/* Wait for transmission complete */
+		while(!(SPSR & (1<<SPIF)));
+		//return SPDR ; // Received data
+	}
 	return SPDR;
 }
 

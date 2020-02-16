@@ -13,7 +13,7 @@
 #include "timers.h"
 #include "gpio.h"
 #include "uart.h"
-
+#include "SPI.h"
 typedef void (*ptr_to_Fun)(void);
 extern ptr_to_Fun INT0_external_interrupt;
 extern ptr_to_Fun INT1_external_interrupt;

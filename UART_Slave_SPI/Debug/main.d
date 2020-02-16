@@ -1,7 +1,7 @@
 main.d main.o: .././main.c .././pushButtonConfig.h .././gpio.h \
- .././std_types.h .././pushButton.h .././softwareDelay.h .././led.h \
- .././ledConfig.h .././timers.h .././registers.h .././uart.h \
- .././uartconfig.h .././SPI.h .././SPI_Config.h
+ .././std_types.h .././pushButton.h .././softwareDelay.h .././uart.h \
+ .././uartconfig.h .././registers.h .././SPI.h .././SPI_Config.h \
+ .././led.h .././ledConfig.h .././timers.h
 
 .././pushButtonConfig.h:
 
@@ -13,18 +13,18 @@ main.d main.o: .././main.c .././pushButtonConfig.h .././gpio.h \
 
 .././softwareDelay.h:
 
+.././uart.h:
+
+.././uartconfig.h:
+
+.././registers.h:
+
+.././SPI.h:
+
+.././SPI_Config.h:
+
 .././led.h:
 
 .././ledConfig.h:
 
 .././timers.h:
-
-.././registers.h:
-
-.././uart.h:
-
-.././uartconfig.h:
-
-.././SPI.h:
-
-.././SPI_Config.h:

@@ -4,6 +4,7 @@
  * Created: 17/01/2020 05:27:05 pm
  *  Author: mo
  */ 
+ 
  #include "pushButton.h"
  #include "pushButtonConfig.h"
  /*
@@ -25,7 +26,7 @@ BTN_0,
 */
 void pushButtonInit(En_buttonId_t en_butotn_id)
 {
-	
+//timer2Init(T2_NORMAL_MODE,T2_OC2_DIS,T2_PRESCALER_NO,0,0,0,T2_POLLING);	
 switch(en_butotn_id)
 {
 case BTN_0:
@@ -63,7 +64,9 @@ switch(en_butotn_id)
 case BTN_0:
 {
 if(gpioPinRead(BTN_0_GPIO,BTN_0_BIT) == Pressed)
-{ softwareDelayMs(10);
+{ timer2Start();
+	timer2DelayMs(50);
+	
 	if(gpioPinRead(BTN_0_GPIO,BTN_0_BIT) == Pressed)
 	return Pressed;
 	else {return Released;}
@@ -74,7 +77,9 @@ case BTN_1:
 {
 if(gpioPinRead(BTN_1_GPIO,BTN_1_BIT) == Pressed)
 {
-softwareDelayMs(10);
+timer2Start();
+timer2DelayMs(50);
+
 if(gpioPinRead(BTN_1_GPIO,BTN_1_BIT) == Pressed)
 return Pressed;
 	else {return Released;}
@@ -85,7 +90,9 @@ case BTN_2:
 {
 if(gpioPinRead(BTN_2_GPIO,BTN_2_BIT) == Pressed)
 {
-	softwareDelayMs(10);
+	timer2Start();
+	timer2DelayMs(50);
+	
 	if(gpioPinRead(BTN_2_GPIO,BTN_2_BIT) == Pressed)
 	return Pressed;
 else {return Released;}
@@ -96,8 +103,9 @@ case BTN_3:
 {
 if(gpioPinRead(BTN_3_GPIO,BTN_3_BIT) == Pressed)
 {
-	softwareDelayMs(10);
-	if(gpioPinRead(BTN_3_GPIO,BTN_3_BIT) == Pressed)
+	timer2Start();
+	timer2DelayMs(50);
+		if(gpioPinRead(BTN_3_GPIO,BTN_3_BIT) == Pressed)
 	return Pressed;
 else {return Released;}
 }else{return Released;}
@@ -106,3 +114,11 @@ break;
 
 }
 }
+/*
+void check_button(void)
+{
+	gpioPinWrite(GPIOB,BIT3,LOW);
+	Asci_data=data_sent_sum + '0';
+	UartTransmitPooling(Asci_data);
+		
+}*/
